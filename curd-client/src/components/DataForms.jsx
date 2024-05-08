@@ -4,17 +4,20 @@ import Form from "react-bootstrap/Form";
 import dataServices from '../services/curdServices';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const DataForms = (props) => {
-
+  
   const [formData, setFormData] = useState(null);
-
+  
+  let navigate = useNavigate();
   const onFormSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     let formDataObj = Object.fromEntries(formData.entries());
     dataServices.dataCreate(formDataObj).then((res) => {
       console.log('res', res);
+      navigate("/");
     });  
   };
 

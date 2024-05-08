@@ -40,7 +40,7 @@ const singleDataDelete = async (data) => {
 };
 
 const dataCreate = async (data) => {
-    const createUrl = `${import.meta.env.VITE_API_URL}sample-create`;
+    const createUrl = `${import.meta.env.VITE_API_URL}/sample-create`;
     try {
         const response = await axios.post(createUrl, data);
         return response.data;
